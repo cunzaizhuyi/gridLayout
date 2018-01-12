@@ -1,6 +1,7 @@
 # 基于JavaScript快速生成网格布局工具Grid.js
 
-作者：云荒杯倾
+作者：云荒杯倾  
+
 [作者博客](https://cunzaizhuyi.github.io)
 
 ## 写在前面
