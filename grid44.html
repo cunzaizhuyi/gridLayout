@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>grid-4*4</title>
+    <script src="./Grid.js"></script>
+    <style>
+        /*.app{*/
+            /*display: grid;*/
+            /*grid-template-columns: repeat(4,150px);*/
+            /*grid-template-rows: repeat(4,150px);*/
+            /*border:1px solid black;*/
+            /*width:600px;*/
+            /*height:600px;*/
+        /*}*/
+        /*.app div{*/
+            /*border:1px solid black;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div class="grid">
+
+</div>
+
+    <script>
+        let grid = new Grid({
+            container:document.getElementsByClassName('grid')[0],
+            colCount:4,
+            rowCount:4,
+            width:600,
+            height:600,
+	        // 生成不规则网
+	        divCount:9,// 有gridArea必须有divCount
+	        gridArea:[[1,1,2,2],[2,3,2,2],[4,1,1,2]]
+        });
+        grid.setGridStyleByIndex(0, {"background": "red"});
+        grid.setGridStyleByIndex(1, {"background": "green"});
+        grid.setGridStyleByIndex(2, {"background": "blue"});
+        let grids = grid.getGrids();
+        for(let i = 0; i < grids.length; i++){
+            grids[i].innerHTML = i + 1;
+        }
+	    console.log(grid.getGrids());
+    </script>
+
+</body>
+</html>
