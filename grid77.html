@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>grid-7*7</title>
+    <script src="./Grid.js"></script>
+</head>
+<body>
+<div class="grid">
+
+</div>
+
+    <script>
+        let grid = new Grid({
+            container:document.getElementsByClassName('grid')[0],
+            colCount:7,
+            rowCount:7,
+            width:600,
+            height:600,
+	        // 生成不规则网
+	        divCount:31,// 有gridArea必须有divCount
+	        gridArea:[[1,1,2,3],[4,2,2,3],[1,5,3,2],[6,6,2,2]]
+        });
+        grid.setGridStyleByIndex(0, {"background": "blue"});
+        grid.setGridStyleByIndex(1, {"background": "red"});
+        grid.setGridStyleByIndex(2, {"background": "green"});
+        grid.setGridStyleByIndex(3, {"background": "yellow"});
+        
+	    console.log(grid.getGrids());
+    </script>
+
+</body>
+</html>

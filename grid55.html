@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>grid-5*5</title>
+    <script src="./Grid.js"></script>
+</head>
+<body>
+<div class="grid">
+
+</div>
+
+    <script>
+        let grid = new Grid({
+            container:document.getElementsByClassName('grid')[0],// 必须项
+            colCount:5,
+            rowCount:5,
+            width:600,
+            height:600,
+        });
+        grid.setGridStyleByIndex(0, {"background": "red"});
+        grid.setGridStyleByIndex(6, {"background": "green"});
+        grid.setGridStyleByIndex(12, {"background": "yellow"});
+        grid.setGridStyleByIndex(18, {"background": "blue"});
+        grid.setGridStyleByIndex(24, {"background": "orange"});
+        let grids = grid.getGrids();
+        for(let i = 0; i < grids.length; i++){
+            grids[i].innerHTML = i + 1;
+        }
+	    console.log(grid.getGrids());
+    </script>
+
+</body>
+</html>

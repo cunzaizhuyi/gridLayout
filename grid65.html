@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>grid-6*5</title>
+    <script src="./Grid.js"></script>
+</head>
+<body>
+<div class="grid">
+
+</div>
+
+    <script>
+        let grid = new Grid({
+            container:document.getElementsByClassName('grid')[0],
+            colCount:5,
+            rowCount:6,
+            width:600,
+            height:600,
+	        // 生成不规则网
+	        divCount:18,// 有gridArea必须有divCount
+	        gridArea:[[1,2,3,1],[3,1,3,1],[3,3,3,2],[1,5,3,1],[6,4,1,2]]
+        });
+        grid.setGridStyleByIndex(0, {"background": "blue"});
+        grid.setGridStyleByIndex(1, {"background": "red"});
+        grid.setGridStyleByIndex(2, {"background": "green"});
+        grid.setGridStyleByIndex(3, {"background": "yellow"});
+        grid.setGridStyleByIndex(4, {"background": "black"});
+        
+	    console.log(grid.getGrids());
+    </script>
+
+</body>
+</html>
