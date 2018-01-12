@@ -1,8 +1,6 @@
-# 基于JavaScript快速生成网格布局工具Grid.js
 
-作者：云荒杯倾  
+基于JavaScript快速生成网格布局工具Grid.js
 
-[作者博客](https://cunzaizhuyi.github.io)
 
 ## 写在前面
 
@@ -21,22 +19,22 @@ Grid.js是一个使用JavaScript动态创建**规则网格布局、非规则网�
 先来几张使用Grid.js生成的效果图吧。
 以下四张效果图父容器的大小都是600*600像素。
 
-第一张是一个4*4的网格，其中有3个网格是非原子大小（1*1）的，即2*2,2*2,2*1。
-https://github.com/cunzaizhuyi/blog-assets/blob/master/gridLayout-rep/44.png?raw=true
+第一张是一个4X4的网格，其中有3个网格是非原子大小（1X1）的，即2X2, 2X2, 2X1。
+![](https://user-gold-cdn.xitu.io/2018/1/13/160eb7bfa86664ac?w=762&h=759&f=png&s=6115)
 
-第二张是一个5*5的规则网格，所谓规则网格就是所有子元素都是1*1的大小。
-https://github.com/cunzaizhuyi/blog-assets/blob/master/gridLayout-rep/55.png?raw=true
+第二张是一个5X5的规则网格，所谓规则网格就是所有子元素都是1X1的大小。
+![](https://user-gold-cdn.xitu.io/2018/1/13/160eb7c2c6d5ccfb?w=763&h=759&f=png&s=9973)
 
-第三张是一个6*5的网格，其中有5个非原子大小的网格。
-https://github.com/cunzaizhuyi/blog-assets/blob/master/gridLayout-rep/65.png?raw=true
+第三张是一个6X5的网格，其中有5个非原子大小的网格。
+![](https://user-gold-cdn.xitu.io/2018/1/13/160eb7c3ffc85aab?w=761&h=761&f=png&s=8403)
 
-第四张是一个7*7的网格，其中有4个非原子大小的网格。
-https://github.com/cunzaizhuyi/blog-assets/blob/master/gridLayout-rep/77.png?raw=true
+第四张是一个7X7的网格，其中有4个非原子大小的网格。
+![](https://user-gold-cdn.xitu.io/2018/1/13/160eb7c5bd1157fd?w=763&h=761&f=png&s=12126)
 
 ## Grid.js使用
 
 Grid.js使用es6 class语法完成，所以使用方式很简单。
-通过new Grid(option)即可生成一个网格实例。就以效果图第二张图生成的5*5网格来说，它的代码就是：
+通过new Grid(option)即可生成一个网格实例。就以效果图第二张图生成的5X5网格来说，它的代码就是：
 
 ```
 let grid = new Grid({
@@ -48,7 +46,7 @@ let grid = new Grid({
         });
 ```
 
-如果你想给每个网格设置不同的样式，就是用对外API方法**setGridStyleByIndex()**; 同样拿效果图5*5网格来说，那五个对角线上网格就做了背景的样式设置，它们是通过如下代码完成的：
+如果你想给每个网格设置不同的样式，就是用对外API方法**setGridStyleByIndex()**; 同样拿效果图5X5网格来说，那五个对角线上网格就做了背景的样式设置，它们是通过如下代码完成的：
 
 ```
 grid.setGridStyleByIndex(0, {"background": "red"});
@@ -85,18 +83,18 @@ for(let i = 0; i < grids.length; i++){
 |width|number、%|父容器宽度|
 |height|number、%|父容器高度|
 |divCount|number|实际格子的多少|
-|gridArea|Array|那些非1*1格子的占位表示|
+|gridArea|Array|那些非1X1格子的占位表示|
 
 **关于divCount和gridArea数组的说明**：
 这两个参数用来生成不规则网格布局，所以是本模块的关键。否则，你就只能用本模块生成n*m的规则网格了。
 
-我们拿第一张效果图4*4网格举例，本来如果不是1、2、3那三个网格有跨行、跨列的行为，就不需要传divCount，也不用传gridArea，模块会为你生成4*4=16个一模一样的格子。但是由于这三个较大网格存在，所以，这个父容器是容不下16个子元素的，所以，你传的divCount是什么呢，**是在存在非1*1子网格的情况下，父容器正好填满时，子网格的数量，因此就是9.**。一般在你拿到设计图的时候，你就知道这个布局了，子网格数目很好算（因为实际场景也不需要创建好几十乘以好几十那么琐碎的格子）。
+我们拿第一张效果图4X4网格举例，本来如果不是1、2、3那三个网格有跨行、跨列的行为，就不需要传divCount，也不用传gridArea，模块会为你生成4X4=16个一模一样的格子。但是由于这三个较大网格存在，所以，这个父容器是容不下16个子元素的，所以，你传的divCount是什么呢，**是在存在非1X1子网格的情况下，父容器正好填满时，子网格的数量，因此就是9.**。一般在你拿到设计图的时候，你就知道这个布局了，子网格数目很好算（因为实际场景也不需要创建好几十乘以好几十那么琐碎的格子）。
 
-针对这三个非1*1的子网格，我们需要为其每一个传一个数组，来表示这个子网格是在父网格的第几行开始、第几列开始、跨几行、跨几列。即每个非1*1的子网格，都要传一个length为4的数组。然后把这些数组再放到一个外包数组里面，这个外包数组就是gridArea。
+针对这三个非1X1的子网格，我们需要为其每一个传一个数组，来表示这个子网格是在父网格的第几行开始、第几列开始、跨几行、跨几列。即每个非1X1的子网格，都要传一个length为4的数组。然后把这些数组再放到一个外包数组里面，这个外包数组就是gridArea。
 
 对于效果图1，gridArea = [[1,1,2,2],[2,3,2,2],[4,1,1,2]]。
-整个4*4网格共有3个非1*1大小的子网格。
-其中[1,1,2,2]就说明这个4*4的网格中有一个从第一行第一列开始，跨行跨列都为2的子网格。
+整个4X4网格共有3个非1X1大小的子网格。
+其中[1,1,2,2]就说明这个4X4的网格中有一个从第一行第一列开始，跨行跨列都为2的子网格。
 
 
 ### API接口
@@ -118,5 +116,5 @@ for(let i = 0; i < grids.length; i++){
 
 [请戳这里](https://github.com/cunzaizhuyi/gridLayout)
 
-
+另附： [作者博客](https://cunzaizhuyi.github.io)
 
